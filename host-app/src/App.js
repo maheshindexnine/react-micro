@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <nav>
-        <Link to="/users">Users</Link> | <Link to="/products">Products</Link> | <Link to="/users/1">User Detail</Link>
+        <Link to="/users">Users</Link> | <Link to="/products">Products</Link> | <Link to="/users/4">User Detail</Link>
       </nav>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>

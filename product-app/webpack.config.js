@@ -7,6 +7,7 @@ module.exports = {
   mode: "development",
   devServer: {
     port: 3002,
+    historyApiFallback: true,
   },
   output: {
     publicPath: "http://localhost:3002/",
