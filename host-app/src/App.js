@@ -31,9 +31,9 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
-        <nav className="bg-white shadow-md p-4 mb-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-bold text-teal-500 mb-4">Host App</h2>
+        <nav className="bg-white shadow-md p-4 mb-6 fixed top-0 left-0 right-0 z-10">
+          <div className="max-w-6xl mx-auto flex justify-between items-center">
+            <h2 className="text-2xl font-bold text-teal-500">Micro Commerce</h2>
             <div className="space-x-4">
               <Link to="/users" className="text-blue-600 hover:text-blue-800 font-medium">Users</Link>
               <Link to="/products" className="text-blue-600 hover:text-blue-800 font-medium">Products</Link>
@@ -41,7 +41,7 @@ function App() {
             </div>
           </div>
         </nav>
-        <main className="max-w-6xl mx-auto px-4">
+        <main className="max-w-6xl mx-auto px-4 mt-10">
           <Suspense fallback={<div className="text-center py-8">Loading...</div>}>
             <Routes>
               <Route path="/users" element={<UsersPage />} />
