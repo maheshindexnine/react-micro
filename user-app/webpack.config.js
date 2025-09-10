@@ -34,11 +34,8 @@ module.exports = {
         name: "usersApp", // or productsApp, host
         filename: "remoteEntry.js",
         exposes: {
-          "./UsersPage": "./src/UsersPage", // for users app
-        },
-        remotes: {
-          usersApp: "usersApp@http://localhost:3001/remoteEntry.js", // only in host
-          productsApp: "productsApp@http://localhost:3002/remoteEntry.js"
+          "./UsersPage": "./src/UsersPage",
+          "./UserDetailPage": "./src/UserDetailPage",
         },
         shared: {
           react: { singleton: true, eager: true, requiredVersion: false },
