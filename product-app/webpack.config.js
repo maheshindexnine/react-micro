@@ -17,7 +17,16 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"], // <- important
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              injectType: "singletonStyleTag"
+            }
+          },
+          "css-loader", 
+          "postcss-loader"
+        ],
       },
       {
         test: /\.(js|jsx)$/,
@@ -42,8 +51,24 @@ module.exports = {
         "./ProductsPage": "./src/ProductPage",
       },
       shared: { 
-        react: { singleton: true, eager: true, requiredVersion: false }, 
-        "react-dom": { singleton: true, eager: true, requiredVersion: false } 
+        react: { 
+          singleton: true, 
+          eager: true, 
+          requiredVersion: false,
+          strictVersion: false
+        }, 
+        "react-dom": { 
+          singleton: true, 
+          eager: true, 
+          requiredVersion: false,
+          strictVersion: false
+        },
+        "react-router-dom": {
+          singleton: true,
+          eager: true,
+          requiredVersion: false,
+          strictVersion: false
+        }
       },
     }),
     new HtmlWebpackPlugin({

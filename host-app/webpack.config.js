@@ -16,6 +16,19 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader",
+            options: {
+              injectType: "singletonStyleTag"
+            }
+          },
+          "css-loader", 
+          "postcss-loader"
+        ],
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -38,8 +51,24 @@ module.exports = {
         productsApp: "productsApp@http://localhost:3002/remoteEntry.js",
       },
       shared: { 
-        react: { singleton: true, eager: true, requiredVersion: false }, 
-        "react-dom": { singleton: true, eager: true, requiredVersion: false } 
+        react: { 
+          singleton: true, 
+          eager: true, 
+          requiredVersion: false,
+          strictVersion: false
+        }, 
+        "react-dom": { 
+          singleton: true, 
+          eager: true, 
+          requiredVersion: false,
+          strictVersion: false
+        },
+        "react-router-dom": {
+          singleton: true,
+          eager: true,
+          requiredVersion: false,
+          strictVersion: false
+        }
       },
     }),
     new HtmlWebpackPlugin({
